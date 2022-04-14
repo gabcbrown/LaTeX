@@ -18,7 +18,10 @@
 \usepackage{tikz}					   % For drawing graphs
 \usetikzlibrary{arrows}
 \usetikzlibrary{shapes}
-\usepackage{biblatex}
+\usepackage{biblatex} 				   % For citations, bibliography generation.
+\usepackage{graphicx}				   % For importing photos. 
+
+
 % \usepackage[margin=1in]{geometry}    % Gives pages smaller margins (1in)   
 
 % Theorem Environments -------------------------------------------------------- 
@@ -52,8 +55,10 @@
 \def\id{\mathrm{id}} 
 \def\sgn{\mathrm{sgn}}
 
-% Bibliography management -----------------------------------------------------
+% File imports ----------------------------------------------------------------
+% Tell LaTeX where any files you need are, like a bibliography file, or photo. 
 \addbibresource{sample.bib}
+\graphicspath{ {./images/} }
 
 % -----------------------------------------------------------------------------
 % ------------------------------- The Document --------------------------------
@@ -95,8 +100,17 @@ Some plain text.
 	\end{tabular}
 \end{center}
 
-% importing a photo 
-TODO
+% Importing a photo using the graphicx package. You have to tell LaTeX where 
+% your images are before you include them, which we've done in the preamble 
+% of this document. They live in the images folder of this project.
+% The "scale" parameter here makes this photo more reasonable! Try removing 
+% it and see how big the image gets on the document.
+
+\begin{figure}[htbp]
+	\centering 
+	\includegraphics[scale=.5]{lattice}
+	\caption{Lattice of quotient group $D_8 / \<r^2\>$ highlighted on top of the lattice of $D_8$.}
+\end{figure}
 
 % Drawing diagrams with tikz --------------------------------------------------
 % The following code might seem complicated at first, but it's really just 
@@ -219,7 +233,4 @@ Here's a website citation. \cite{wiki-tensor}
 % Using a bibliography: 
 %   https://www.overleaf.com/learn/latex/Bibliography_management_in_LaTeX#Reference_guide
 %   https://en.wikibooks.org/wiki/LaTeX/Bibliography_Management
-% 
-% Using TikZ:
-% TODO
 
