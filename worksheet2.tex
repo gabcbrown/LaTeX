@@ -98,9 +98,31 @@ Some plain text.
 % importing a photo 
 TODO
 
-% two basic diagrams
-TODO: triangle 
-TODO: lattice 
+% Drawing diagrams with tikz --------------------------------------------------
+% The following code might seem complicated at first, but it's really just 
+% a set of rules that tells tikz two things: 1) where to put a node and 2) where 
+% to put an arrow. Everything else is style on those two things. Don't forget
+% your semicolons!  
+% 	\node (B) at (-1.25, 0) {$\cB$};
+% means "create a new node called B at these coordinates, and give it the label 
+% $\cB$" and 
+%   \draw[->] (B)   -- node[above] {incl}      (FrB);
+% means "draw an arrow from B to FrB, and label it above the line with 'incl'".  
+
+\begin{figure}[htbp]
+	\centering 
+	$$\begin{tikzpicture}
+		\node (B)   at (-1.25, 0)   {$\cB$};
+		\node (FrB) at (1.25, 0)    {$\Fr(\cB)$};
+		\node (M)   at (1.25, -1.5) {$M$};
+			
+		\draw[->] (B)   -- node[above] {incl}      (FrB);
+		\draw[->] (FrB) -- node[right] {$\varPhi$} (M);
+		\draw[->] (B)   -- node[below] {$\varphi$} (M);
+	\end{tikzpicture}$$ 
+	\caption{The universal property of free modules. (This diagram commutes!)}
+\end{figure}
+
 
 % Using theorem environments --------------------------------------------------
 % Some useful math environments based on the amsmath and amsthm packages. You 
